@@ -52,14 +52,19 @@ else
     echo -e "${GREEN}✅ Docker is already installed${NC}"
 fi
 
-# Install Docker Compose plugin if not present
-if ! docker compose version &> /dev/null; then
-    echo -e "${YELLOW}🔧 Installing Docker Compose plugin...${NC}"
-    sudo apt-get update
-    sudo apt-get install -y docker-compose-plugin
-    echo -e "${GREEN}✅ Docker Compose installed successfully!${NC}"
+# Detect docker-compose command
+if command_exists docker-compose; then
+    COMPOSE_CMD="docker-compose"
+    echo -e "${GREEN}✅ docker-compose is installed${NC}"
+elif docker compose version &> /dev/null 2>&1; then
+    COMPOSE_CMD="docker compose"
+    echo -e "${GREEN}✅ Docker Compose (plugin) is installed${NC}"
 else
-    echo -e "${GREEN}✅ Docker Compose is already installed${NC}"
+    echo -e "${YELLOW}🔧 Installing docker-compose...${NC}"
+    sudo apt-get update
+    sudo apt-get install -y docker-compose
+    COMPOSE_CMD="docker-compose"
+    echo -e "${GREEN}✅ docker-compose installed successfully!${NC}"
 fi
 
 # Check if config.yaml exists
@@ -132,13 +137,13 @@ echo ""
 # Stop existing container if running
 if docker ps -a | grep -q proxypal; then
     echo "🛑 Stopping existing ProxyPal container..."
-    docker compose down 2>/dev/null || docker stop proxypal 2>/dev/null || true
+    $COMPOSE_CMD down 2>/dev/null || docker stop proxypal 2>/dev/null || true
     docker rm proxypal 2>/dev/null || true
 fi
 
 echo "🚀 Starting ProxyPal..."
-docker compose up -d || {
-    echo -e "${RED}❌ Failed to start with docker-compose${NC}"
+$COMPOSE_CMD up -d || {
+    echo -e "${RED}❌ Failed to start with $COMPOSE_CMD${NC}"
     exit 1
 }
 
@@ -147,7 +152,7 @@ echo "⏳ Waiting for service to start..."
 sleep 3
 
 # Check if service is running
-if docker compose ps | grep -q "Up"; then
+if $COMPOSE_CMD ps | grep -q "Up"; then
     echo ""
     echo -e "${GREEN}✅ ProxyPal is now running!${NC}"
     echo ""
@@ -181,10 +186,10 @@ if docker compose ps | grep -q "Up"; then
     fi
 
     echo "📝 Useful commands:"
-    echo "  View logs:      docker compose logs -f"
-    echo "  Stop service:   docker compose down"
-    echo "  Restart:        docker compose restart"
-    echo "  Check status:   docker compose ps"
+    echo "  View logs:      $COMPOSE_CMD logs -f"
+    echo "  Stop service:   $COMPOSE_CMD down"
+    echo "  Restart:        $COMPOSE_CMD restart"
+    echo "  Check status:   $COMPOSE_CMD ps"
     echo ""
 
     # Configure firewall if ufw is available
@@ -210,6 +215,6 @@ if docker compose ps | grep -q "Up"; then
     echo ""
 else
     echo -e "${RED}❌ Failed to start service${NC}"
-    echo "Check logs with: docker compose logs"
+    echo "Check logs with: $COMPOSE_CMD logs"
     exit 1
 fi

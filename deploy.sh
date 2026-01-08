@@ -55,9 +55,9 @@ echo ""
 echo "✅ Docker image built successfully!"
 echo ""
 
-echo "🚀 Starting ProxyPal with docker-compose..."
+echo "🚀 Starting ProxyPal with $COMPOSE_CMD..."
 $COMPOSE_CMD up -d || {
-    echo "❌ Failed to start with docker-compose"
+    echo "❌ Failed to start with $COMPOSE_CMD"
     exit 1
 }
 
