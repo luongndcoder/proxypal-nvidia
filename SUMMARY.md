@@ -15,7 +15,7 @@ ProxyPal is a high-performance load balancer for NVIDIA API keys, designed to ma
 ## Project Structure
 
 ```
-proxypal-nvidia-load-balance/
+proxypal-nvidia/
 ├── cmd/proxypal/              # Main application
 ├── internal/
 │   ├── balancer/              # Load balancing & rate limiting

@@ -107,6 +107,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this 
 
 ## Links
 
-- [Homepage](https://github.com/luongcoder/proxypal-nvidia-load-balance)
-- [Issues](https://github.com/luongcoder/proxypal-nvidia-load-balance/issues)
-- [Releases](https://github.com/luongcoder/proxypal-nvidia-load-balance/releases)
+- [Homepage](https://github.com/luongndcoder/proxypal-nvidia)
+- [Issues](https://github.com/luongndcoder/proxypal-nvidia/issues)
+- [Releases](https://github.com/luongndcoder/proxypal-nvidia/releases)

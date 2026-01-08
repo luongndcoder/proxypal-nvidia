@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/luongcoder/proxypal-nvidia-load-balance/internal/balancer"
-	"github.com/luongcoder/proxypal-nvidia-load-balance/internal/config"
+	"github.com/luongndcoder/proxypal-nvidia/internal/balancer"
+	"github.com/luongndcoder/proxypal-nvidia/internal/config"
 )
 
 // ProxyServer handles incoming requests and proxies them to NVIDIA API

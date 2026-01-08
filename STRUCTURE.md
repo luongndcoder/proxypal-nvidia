@@ -1,7 +1,7 @@
 # Project Structure
 
 ```
-proxypal-nvidia-load-balance/
+proxypal-nvidia/
 ├── cmd/
 │   └── proxypal/
 │       └── main.go              # Application entry point

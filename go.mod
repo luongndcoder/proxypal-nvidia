@@ -1,4 +1,4 @@
-module github.com/luongcoder/proxypal-nvidia-load-balance
+module github.com/luongndcoder/proxypal-nvidia
 
 go 1.21
 

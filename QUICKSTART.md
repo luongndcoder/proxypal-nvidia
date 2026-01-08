@@ -198,5 +198,5 @@ logging:
 
 ## Support
 
-- Issues: https://github.com/luongcoder/proxypal-nvidia-load-balance/issues
+- Issues: https://github.com/luongndcoder/proxypal-nvidia/issues
 - Documentation: [README.md](README.md)

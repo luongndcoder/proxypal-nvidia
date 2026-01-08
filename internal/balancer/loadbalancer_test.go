@@ -3,7 +3,7 @@ package balancer
 import (
 	"testing"
 
-	"github.com/luongcoder/proxypal-nvidia-load-balance/internal/config"
+	"github.com/luongndcoder/proxypal-nvidia/internal/config"
 )
 
 func TestLoadBalancer_NewLoadBalancer(t *testing.T) {

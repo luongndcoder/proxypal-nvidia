@@ -5,7 +5,7 @@ Thank you for your interest in contributing to ProxyPal! We welcome contribution
 ## Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/proxypal-nvidia-load-balance.git`
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/proxypal-nvidia.git`
 3. Create a feature branch: `git checkout -b feature/amazing-feature`
 4. Make your changes
 5. Test your changes: `make test`

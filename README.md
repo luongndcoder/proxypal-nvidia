@@ -19,8 +19,8 @@ A high-performance load balancer for NVIDIA API keys, written in Golang. This to
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/luongcoder/proxypal-nvidia-load-balance.git
-   cd proxypal-nvidia-load-balance
+   https://github.com/luongndcoder/proxypal-nvidia.git
+   cd proxypal-nvidia
    ```
 
 2. **Create configuration file**
@@ -231,8 +231,8 @@ With 3 API keys, you can achieve:
 
 ```bash
 # Clone repository
-git clone https://github.com/luongcoder/proxypal-nvidia-load-balance.git
-cd proxypal-nvidia-load-balance
+git clone https://github.com/luongndcoder/proxypal-nvidia.git
+cd proxypal-nvidia
 
 # Download dependencies
 go mod download
@@ -336,7 +336,7 @@ This tool is for educational purposes and managing your own NVIDIA API keys effi
 
 ## Support
 
-- Create an issue: [GitHub Issues](https://github.com/luongcoder/proxypal-nvidia-load-balance/issues)
+- Create an issue: [GitHub Issues](https://github.com/luongndcoder/proxypal-nvidia/issues)
 - Star the project if you find it useful!
 
 ---

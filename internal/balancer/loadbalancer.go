@@ -6,14 +6,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/luongcoder/proxypal-nvidia-load-balance/internal/config"
+	"github.com/luongndcoder/proxypal-nvidia/internal/config"
 )
 
 // APIKey represents an NVIDIA API key with its rate limiter
 type APIKey struct {
-	Key         string
-	RateLimiter *RateLimiter
-	LastUsed    time.Time
+	Key          string
+	RateLimiter  *RateLimiter
+	LastUsed     time.Time
 	RequestCount atomic.Uint64
 	ErrorCount   atomic.Uint64
 }
