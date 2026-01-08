@@ -5,7 +5,7 @@
 # Claude
 .claude
 
-# Build artifacts
+# Build artifacts (but keep source code)
 proxypal
 *.exe
 *.dll
@@ -40,8 +40,12 @@ docker-compose.override.yml
 *.md
 !README.md
 
-# Scripts (not needed in image)
-*.sh
+# Scripts (not needed in image, but keep source)
+deploy.sh
+ubuntu-deploy.sh
+test.sh
+verify.sh
+build.sh
 
 # Examples
 example.py

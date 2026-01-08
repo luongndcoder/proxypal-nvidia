@@ -29,7 +29,7 @@ WORKDIR /root/
 COPY --from=builder /app/proxypal .
 
 # Copy default config
-COPY config.example.yaml ./config.example.yaml
+COPY config.yaml ./config.yaml
 
 # Expose port
 EXPOSE 8080
