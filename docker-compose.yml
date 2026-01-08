@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  proxypal:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount your config file
+      - ./config.yaml:/root/config.yaml
+    environment:
+      - CONFIG_PATH=/root/config.yaml
+    restart: unless-stopped
+    container_name: proxypal-nvidia
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

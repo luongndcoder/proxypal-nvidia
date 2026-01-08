@@ -1,0 +1,37 @@
+# ProxyPal NVIDIA Load Balance Configuration
+
+server:
+  # Port to run the proxy server on
+  port: 8080
+  # Host to bind to (0.0.0.0 for all interfaces, 127.0.0.1 for localhost only)
+  host: "0.0.0.0"
+
+nvidia:
+  # Base URL for NVIDIA API
+  base_url: "https://integrate.api.nvidia.com/v1"
+
+  # Rate limit per API key (requests per minute)
+  rate_limit: 40
+
+  # API Keys list - Add your NVIDIA API keys here
+  # Each key will be load balanced with rate limiting
+  api_keys:
+    - "nvapi-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    - "nvapi-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+    - "nvapi-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+
+  # Timeout for upstream requests (in seconds)
+  timeout: 300
+
+  # Retry configuration
+  retry:
+    # Maximum number of retries when a key is rate limited
+    max_retries: 3
+    # Whether to automatically failover to next available key
+    auto_failover: true
+
+logging:
+  # Log level: debug, info, warn, error
+  level: "info"
+  # Enable request/response logging
+  enable_request_log: true
